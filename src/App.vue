@@ -25,7 +25,8 @@
       classes. Let's take, for example, a small element such as this:
     </p>
     <div class="flex justify-center items-center">
-      <img src="./assets/element.svg" alt="Unorganized element" class="rounded-md border border-gray-300 shadow-sm">
+      <img src="./assets/element.svg" alt="Unorganized element"
+        class="rounded-md border border-gray-300 shadow-sm h-max w-max aspect-auto">
     </div>
     <p class="text-gray-700">
       It is very difficult to locate the classes that are being used on this element. This is where this tool comes in.
