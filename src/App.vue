@@ -24,20 +24,20 @@
       One of the largest problems with utility classes comes from disorganization and the inability to locate specific
       classes. Let's take, for example, a small element such as this:
     </p>
-    <div class="flex justify-center">
+    <div class="flex justify-center items-center">
       <img src="./assets/element.svg" alt="Unorganized element" class="rounded-md border border-gray-300 shadow-sm">
     </div>
     <p class="text-gray-700">
       It is very difficult to locate the classes that are being used on this element. This is where this tool comes in.
       Simply paste your Tailwind CSS classes into the input box and the classes are assigned a category.
     </p>
-    <div class="flex justify-center">
+    <div class="flex justify-center items-center">
       <img src="./assets/element-labeled.svg" alt="Labeled element" class="rounded-md border border-gray-300 shadow-sm">
     </div>
     <p class="text-gray-700">
       Then the elements are organized into a more legible format.
     </p>
-    <div class="flex justify-center">
+    <div class="flex justify-center items-center">
       <img src="./assets/element-sorted.svg" alt="Sorted element" class="rounded-md border border-gray-300 shadow-sm">
     </div>
   </div>
