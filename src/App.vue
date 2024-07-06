@@ -1,16 +1,16 @@
 <template>
-  <div class="p-6 max-w-lg mx-auto bg-white rounded-xl shadow-md space-y-4">
-    <h1 class="text-2xl font-bold text-center text-gray-800">Tailwind CSS Class Organizer</h1>
+  <div class="p-6 max-w-lg mx-auto bg-white rounded-xl shadow-md space-y-4 mb-8">
+    <h1 class="text-3xl font-bold text-center text-gray-900">Tailwind CSS Class Organizer</h1>
     <div>
       <label for="input" class="block text-sm font-medium text-gray-700">Input Code</label>
       <textarea id="input" v-model="inputCode"
-        class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         rows="5" placeholder="Paste your Tailwind CSS classes here..."></textarea>
     </div>
     <div>
       <label for="output" class="block text-sm font-medium text-gray-700">Organized Code</label>
       <textarea id="output" v-model="outputCode"
-        class="mt-1 p-2 w-full border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" rows="5"
+        class="mt-1 p-3 w-full border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed" rows="5"
         readonly></textarea>
     </div>
     <button @click="copyToClipboard"
@@ -19,30 +19,39 @@
     </button>
   </div>
   <div class="p-6 max-w-3xl mx-auto bg-white rounded-xl shadow-md space-y-6">
-    <h2 class="text-2xl font-bold text-gray-800">How it Works</h2>
-    <p class="text-gray-700">
+    <h2 class="text-2xl font-bold text-gray-900">How it Works</h2>
+    <p class="text-gray-700 leading-relaxed">
       One of the largest problems with utility classes comes from disorganization and the inability to locate specific
       classes. Let's take, for example, a small element such as this:
     </p>
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center py-4">
       <img src="./assets/element.svg" alt="Unorganized element"
-        class="rounded-md border border-gray-300 shadow-sm h-max w-max aspect-auto">
+        class="rounded-md border border-gray-300 shadow-sm max-w-full">
     </div>
-    <p class="text-gray-700">
+    <p class="text-gray-700 leading-relaxed">
       It is very difficult to locate the classes that are being used on this element. This is where this tool comes in.
       Simply paste your Tailwind CSS classes into the input box and the classes are assigned a category.
     </p>
-    <div class="flex justify-center items-center">
-      <img src="./assets/element-labeled.svg" alt="Labeled element" class="rounded-md border border-gray-300 shadow-sm">
+    <div class="flex justify-center items-center py-4">
+      <img src="./assets/element-labeled.svg" alt="Labeled element"
+        class="rounded-md border border-gray-300 shadow-sm max-w-full">
     </div>
-    <p class="text-gray-700">
+    <p class="text-gray-700 leading-relaxed">
       Then the elements are organized into a more legible format.
     </p>
-    <div class="flex justify-center items-center">
-      <img src="./assets/element-sorted.svg" alt="Sorted element" class="rounded-md border border-gray-300 shadow-sm">
+    <div class="flex justify-center items-center py-4">
+      <img src="./assets/element-sorted.svg" alt="Sorted element"
+        class="rounded-md border border-gray-300 shadow-sm max-w-full">
     </div>
   </div>
 </template>
+
+<style scoped>
+textarea {
+  resize: none;
+}
+</style>
+
 
 <script>
 export default {
@@ -378,7 +387,6 @@ export default {
     },
     copyToClipboard() {
       navigator.clipboard.writeText(this.outputCode).then(() => {
-        alert("Copied to clipboard!");
       });
     },
   },
