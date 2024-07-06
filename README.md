@@ -24,7 +24,7 @@ FormatwindCSS is a tailwindCSS tool that organizes utility classes based on thei
 This creates a more user friendly schema for finding classes within elements when the number of utility classes grows large.
 
 #### Input
-```
+```html
 <button class="inline-flex items-center justify-
 center px-6 py-3 text-base font-medium text-white bg-
 blue-600 border border-transparent rounded-md shadow-
@@ -39,7 +39,7 @@ Click me!
 
 ```
 #### Output
-```
+```html
 <button class="inline-flex px-6 py-3 items-center
 shadow-sm sm:w-auto font-medium text-base md:text-lg 
 sm:text-sm text-white lg:text-xl hover:bg-blue-700
@@ -56,19 +56,17 @@ Click me!
 ## Installation
 
 with git installed run: 
-```
+```bash
 git clone git@github.com:Hunter-Lanier/FormatwindCSS.git
 cd FromatwindCSS
 npm run install
 npm run dev
 
----<Result>---
-➜  Local:   http://localhost:<PORT>/
-```
 
 ## How it's done
 By using the safelist feature within the tailwind.config file, we are able to generate a list of all possible CSS Classes.
-``` // Tailwind Config  
+```config
+// Tailwind Config  
 module.exports = {  
 safelist: [  
 {  
@@ -80,11 +78,12 @@ theme: {}
 }
 ```
 After that, we can use this code to rebuild css output:
-```
+```bash
 npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
 ```
 Here is a chunk of the output.css: 
-```.pointer-events-none {
+```css
+.pointer-events-none {
 pointer-events: none;
 }
 .pointer-events-auto {
@@ -107,7 +106,7 @@ position: fixed;
 }
 ```
 Then we use a Python Script to extract the class names from this file, and then trim by removing weights of colors and numeric values of the classes. This shrinks the list from ~10k classes to ~1,000 classes.
-```
+```python
 import re
 
   
@@ -155,11 +154,12 @@ for item in class_names:
 f.write("%s\n"  % item)
 ```
 With a smaller number of classes now, we can feed the list of of classes to a LLM and have it organize the classes based on the 8 Categories we listed before. The results is an organized list of our classes that we can now feed to Vue as a data point.
-```
+```javascript
 data() {
 
 return  {
 classOrderPatterns: ['absolute', 'block', 'box-border',...],
+},
 }
 ```
 and finally, we create a method for organizing the classes based on the structure within our Array.
